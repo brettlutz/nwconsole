@@ -1,0 +1,23 @@
+{
+  "name": "nwconsole",
+  "version": "0.1.0",
+  "description": "File output for console.log calls (node & webkit)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ivsgroup/nwconsole.git"
+  },
+  "keywords": [
+    "console",
+    "nw",
+    "webkit"
+  ],
+  "author": "Francois Leurent <fleurent@ivsweb.com>",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/ivsgroup/nwconsole/issues"
+  }
+}
