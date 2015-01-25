@@ -3,7 +3,8 @@ Redirect console.log calls to a basic log file for node webkit applications.
 
 # Motivation
 'console' in nw application can easily get mixed between node & webkit environnement.
-nwconsole, will enforce output in a simple, unique, temporary file.
+In nw, nwconsole, will enforce output in a simple, unique, temporary file for both nodejs & webkit context.
+If used in a raw nodejs environnement, nwconsole falls back to the native 'console'.
 
 # Installation
 ```

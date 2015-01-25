@@ -1,11 +1,15 @@
+
 var fs      = require('fs'),
     util    = require('util'),
     os      = require('os'),
-    path    = require('path'),
-    gui = global.window.nwDispatcher.requireNwGui();
+    path    = require('path');
+
+if(!global.window) //nodejs
+  return module.exports = console;
 
 
-var console = {};
+var gui = global.window.nwDispatcher.requireNwGui();
+var nwconsole = {};
 
 var log_file_path = path.join(os.tmpdir(), gui.App.manifest.name + '.log'),
     log_file      = fs.createWriteStream(log_file_path, {flags : 'a'});
@@ -15,15 +19,15 @@ var _log = function(level, args) {
   level =  ("      " + level).slice(-5);
   log_file.write("[" + level + ' ' + date.toISOString() + "] " + util.format.apply(null, args) + '\n');
 }
-console.log = function(message) {
+nwconsole.log = function(message) {
   _log("info", [].slice.apply(arguments));
 };
 
-console.error = function(d) {
+nwconsole.error = function(d) {
   if(d.stack) //or is a error
     _log("error", [d.stack.toString()]);
   else
     _log("error", [].slice.apply(arguments));
 };
 
-module.exports = console;
+module.exports = nwconsole;
