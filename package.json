@@ -1,6 +1,6 @@
 {
   "name": "nwconsole",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "File output for console.log calls (node & webkit)",
   "main": "index.js",
   "scripts": {

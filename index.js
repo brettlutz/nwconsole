@@ -20,7 +20,10 @@ console.log = function(message) {
 };
 
 console.error = function(d) {
-  _log("error", [].slice.apply(arguments));
+  if(d.stack) //or is a error
+    _log("error", [d.stack.toString()]);
+  else
+    _log("error", [].slice.apply(arguments));
 };
 
 module.exports = console;
