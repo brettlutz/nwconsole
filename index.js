@@ -30,4 +30,8 @@ nwconsole.error = function(d) {
     _log("error", [].slice.apply(arguments));
 };
 
+nwconsole.getLogfilePath = function() {
+  return log_file_path;
+};
+
 module.exports = nwconsole;
