@@ -19,9 +19,13 @@ var _log = function(level, args) {
   level =  ("      " + level).slice(-5);
   log_file.write("[" + level + ' ' + date.toISOString() + "] " + util.format.apply(null, args) + '\n');
 }
-nwconsole.log = function(message) {
-  _log("info", [].slice.apply(arguments));
-};
+
+nwconsole.log  = function(message) {  _log("log", [].slice.apply(arguments)); };
+nwconsole.info = function(message) {  _log("info", [].slice.apply(arguments)); };
+nwconsole.warn = function(message) {  _log("warn", [].slice.apply(arguments)); };
+
+
+nwconsole.trace = nwconsole.assert = Function.prototype;
 
 nwconsole.error = function(d) {
   if(d.stack) //or is a error
