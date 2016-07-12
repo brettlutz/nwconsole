@@ -2,13 +2,15 @@
 var fs      = require('fs'),
     util    = require('util'),
     os      = require('os'),
-    path    = require('path');
+    path    = require('path')
+    window  = global.window;
 
-if(!global.window) //nodejs
+if(!window) //nodejs
   return module.exports = console;
 
+  //we are in nw context
+var gui = window.require('nw.gui');
 
-var gui = global.window.nwDispatcher.requireNwGui();
 var nwconsole = {};
 
 var log_file_path = path.join(os.tmpdir(), gui.App.manifest.name + '.log'),
