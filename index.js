@@ -13,7 +13,7 @@ var gui = window.require('nw.gui');
 
 var nwconsole = {};
 
-var log_file_path = path.join(os.tmpdir(), gui.App.manifest.name + '.log'),
+var log_file_path = path.join('./', gui.App.manifest.name + '.log'),
     log_file      = fs.createWriteStream(log_file_path, {flags : 'a'});
 
 var _log = function(level, args) {
